@@ -1,0 +1,59 @@
+/*
+** EPITECH PROJECT, 2026
+** Chained_lists
+** File description:
+** add_node
+*/
+
+#include "chained.h"
+#include <stdlib.h>
+
+node_t *create_node(void *data)
+{
+    node_t *node = NULL;
+
+    if (!data)
+        return NULL;
+    node = malloc(sizeof(node_t));
+    if (!node)
+        return NULL;
+    node->data = data;
+    node->next = NULL;
+    node->previous = NULL;
+    return node;
+}
+
+void pop_node(node_t **list, node_t *data)
+{
+    if (!list || !data)
+        return;
+    if (!(*list)) {
+        (*list) = data;
+        return;
+    }
+    node_t *next = (*list);
+    (*list) = data;
+    (*list)->next = next;
+    next->previous = (*list);
+    return;
+}
+
+void app_node(node_t **list, node_t *data)
+{
+    if (!list || !data)
+        return;
+    if (!(*list)) {
+        (*list) = data;
+        return;
+    }
+    node_t *curr = (*list)->next;
+    node_t *prev = (*list);
+    while (curr) {
+        curr = curr->next;
+        prev = prev->next;
+    }
+    curr = data;
+    curr->previous = prev;
+    prev->next = curr;
+    return;
+}
