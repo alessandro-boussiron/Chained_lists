@@ -46,14 +46,10 @@ void app_node(node_t **list, node_t *data)
         (*list) = data;
         return;
     }
-    node_t *curr = (*list)->next;
     node_t *prev = (*list);
-    while (curr) {
-        curr = curr->next;
+    while (prev->next)
         prev = prev->next;
-    }
-    curr = data;
-    curr->previous = prev;
-    prev->next = curr;
+    prev->next = data;
+    data->previous = prev;
     return;
 }

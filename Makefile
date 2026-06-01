@@ -14,6 +14,7 @@ CFLAGS		=	-Wall -Wextra $(INCLUDE)
 SRCF		=	src/
 
 SRC			=	$(SRCF)node_addition.c	\
+				$(SRCF)node_deletion.c	\
 
 OBJ			=	$(SRC:.c=.o)
 
