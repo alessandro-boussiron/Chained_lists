@@ -15,6 +15,7 @@ SRCF		=	src/
 
 SRC			=	$(SRCF)node_addition.c	\
 				$(SRCF)node_deletion.c	\
+				$(SRCF)node_get.c		\
 
 OBJ			=	$(SRC:.c=.o)
 

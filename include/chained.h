@@ -19,6 +19,7 @@ typedef struct node {
 // Utils
 node_t *create_node(void *data);
 void remove_node(node_t *node);
+void remove_node_data(node_t *node, void (*data_destroy)(void *data));
 
 // List addings
 void pop_node(node_t **list, node_t *data);

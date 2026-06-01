@@ -8,7 +8,7 @@
 #include "chained.h"
 #include <stdlib.h>
 
-// Retrives the node sent
+// Removes the node sent
 void remove_node(node_t *node)
 {
     if (!node)
@@ -19,6 +19,21 @@ void remove_node(node_t *node)
         node->next->previous = prev;
     if (node->previous)
         node->previous->next = next;
+    free(node);
+}
+
+// Removes the node & the data
+void remove_node_data(node_t *node, void (*data_destroy)(void *data))
+{
+    if (!node || !data_destroy)
+        return;
+    node_t *next = node->next;
+    node_t *prev = node->previous;
+    if (node->next)
+        node->next->previous = prev;
+    if (node->previous)
+        node->previous->next = next;
+    data_destroy(node->data);
     free(node);
 }
 

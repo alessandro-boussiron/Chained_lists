@@ -13,7 +13,7 @@ node_t *get_at_idx(node_t *list, size_t idx)
     if (!list)
         return NULL;
     node_t *ptr = list;
-    for (int i = 0; ptr && i < idx; i++)
+    for (size_t i = 0; ptr && i < idx; i++)
         ptr = ptr->next;
     return ptr;
 }
