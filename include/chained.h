@@ -29,6 +29,10 @@ void app_node(node_t **list, node_t *data);
 void remove_at(node_t **list, size_t idx);
 void list_destroy(node_t **list);
 
+// Apply
+void apply_at(node_t *list, void *(*apply_fcn)(void *data), int idx);
+void apply_list(node_t *list, void *(*apply_fcn)(void *data));
+
 // Node retrieves
 node_t *get_tail(node_t *list);
 node_t *get_at_idx(node_t *list, size_t idx);
