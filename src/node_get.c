@@ -27,3 +27,14 @@ node_t *find_node(node_t *list, bool (*compare)(void *data, void *to_compare), v
     for (; ptr && compare(ptr->data, to_compare) == false; ptr = ptr->next);
     return ptr;
 }
+
+// Helper function to get the last element in the list
+node_t *get_tail(node_t *list)
+{
+    if (!list)
+        return NULL;
+    node_t *ptr = list;
+    while(ptr->next)
+        ptr = ptr->next;
+    return ptr;
+}
