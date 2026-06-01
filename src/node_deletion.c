@@ -8,7 +8,8 @@
 #include "chained.h"
 #include <stdlib.h>
 
-static void remove_node(node_t *node)
+// Retrives the node sent
+void remove_node(node_t *node)
 {
     if (!node)
         return;
@@ -21,6 +22,7 @@ static void remove_node(node_t *node)
     free(node);
 }
 
+// Remove the node at "this idx"
 void remove_at(node_t **list, size_t idx)
 {
     if (!list || !(*list))
@@ -38,6 +40,7 @@ void remove_at(node_t **list, size_t idx)
     remove_node(ptr);
 }
 
+// Destoy entirely this list
 void list_destroy(node_t **list)
 {
     node_t *ptr = NULL;

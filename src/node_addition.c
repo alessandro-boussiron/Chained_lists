@@ -8,6 +8,7 @@
 #include "chained.h"
 #include <stdlib.h>
 
+// Create a node
 node_t *create_node(void *data)
 {
     node_t *node = NULL;
@@ -23,6 +24,7 @@ node_t *create_node(void *data)
     return node;
 }
 
+// Pop a node
 void pop_node(node_t **list, node_t *data)
 {
     if (!list || !data)
@@ -38,6 +40,7 @@ void pop_node(node_t **list, node_t *data)
     return;
 }
 
+// Append a node
 void app_node(node_t **list, node_t *data)
 {
     if (!list || !data)
